@@ -6,12 +6,12 @@ const Home = () => {
   const [form, setForm] = useState({ title: "", content: "" });
 
   useEffect(() => {
-    axios.get("http://localhost:8000/notes").then((res) => setNotes(res.data));
+    axios.get("https://python-notes-app-backend.onrender.com/notes").then((res) => setNotes(res.data));
   }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const res = await axios.post("http://localhost:8000/notes", form);
+    const res = await axios.post("https://python-notes-app-backend.onrender.com/notes", form);
     setNotes([...notes, res.data]);
     setForm({ title: "", content: "" });
   };
